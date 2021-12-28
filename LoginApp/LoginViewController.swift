@@ -76,7 +76,7 @@ extension LoginViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.placeholder == txtLogin.placeholder {
+        if textField == txtLogin {
             txtPassword.becomeFirstResponder()
         } else {
             checkExistLoginAndPassword()
