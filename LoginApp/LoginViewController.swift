@@ -29,6 +29,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         welcomeVC.userName = txtLogin.text
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         txtLogin.text = ""
         txtPassword.text = ""
@@ -44,21 +49,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func actionLogin(_ sender: UIButton) {
         checkExistLoginAndPassword()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.placeholder == txtLogin.placeholder {
-            txtPassword.becomeFirstResponder()
-        } else {
-            checkExistLoginAndPassword()
-        }
-
-        return true
     }
 
     private func checkExistLoginAndPassword() {
@@ -81,6 +71,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.placeholder == txtLogin.placeholder {
+            txtPassword.becomeFirstResponder()
+        } else {
+            checkExistLoginAndPassword()
+        }
+
+        return true
     }
     
 }
