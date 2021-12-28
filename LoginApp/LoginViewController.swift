@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -17,21 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        txtLogin.delegate = self
-        txtPassword.delegate = self
-        
+
         txtPassword.enablesReturnKeyAutomatically = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userName = txtLogin.text
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
-        view.endEditing(true)
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -50,7 +42,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func actionLogin(_ sender: UIButton) {
         checkExistLoginAndPassword()
     }
+    
+}
 
+//MARK: - private methods
+extension LoginViewController {
+    
     private func checkExistLoginAndPassword() {
         if let login = txtLogin.text,
            let password = txtPassword.text {
@@ -73,15 +70,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+}
+
+//MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.placeholder == txtLogin.placeholder {
             txtPassword.becomeFirstResponder()
         } else {
             checkExistLoginAndPassword()
+            performSegue(withIdentifier: "showWelcomeVC", sender: nil)
         }
 
         return true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
 }
-
