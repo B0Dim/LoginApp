@@ -11,9 +11,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    
-    private let trueLogin = "mylogin"
-    private let truePassword = "Password1"
+  
+    let user = User.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +31,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionForgotName(_ sender: UIButton) {
-        showAlert(title: "Forgot User Name", for: "Your User Name is \(trueLogin)")
+        showAlert(title: "Forgot User Name", for: "Your User Name is \(user.login)")
     }
     
     @IBAction func actionForgotPassword(_ sender: UIButton) {
-        showAlert(title: "Forgot Password", for: "Your Password is \(truePassword)")
+        showAlert(title: "Forgot Password", for: "Your Password is \(user.password)")
     }
     
     @IBAction func actionLogin(_ sender: UIButton) {
@@ -56,7 +55,8 @@ extension LoginViewController {
     }
     
     private func checkLoginAndPassword(login: String, and password: String) {
-        if login != trueLogin || password != truePassword {
+        if login != user.login || password != user.password {
+            txtPassword.text = ""
             showAlert(title: "Error!",
                       for: "User name or Password is invalid.\nPlease try again.")
         } else {
