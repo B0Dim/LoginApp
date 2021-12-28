@@ -20,14 +20,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         txtLogin.delegate = self
         txtPassword.delegate = self
+        
+        txtPassword.enablesReturnKeyAutomatically = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.userName = txtLogin.text
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        txtLogin.text = ""
+        txtPassword.text = ""
     }
     
     @IBAction func actionForgotName(_ sender: UIButton) {
-        showAlert(title: "Forgot User Name", for: "Your User Name is mylogin")
+        showAlert(title: "Forgot User Name", for: "Your User Name is \(trueLogin)")
     }
     
     @IBAction func actionForgotPassword(_ sender: UIButton) {
-        showAlert(title: "Forgot Password", for: "Your Password is Password1")
+        showAlert(title: "Forgot Password", for: "Your Password is \(truePassword)")
     }
     
     @IBAction func actionLogin(_ sender: UIButton) {
@@ -40,7 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.placeholder == "User name" {
+        if textField.placeholder == txtLogin.placeholder {
             txtPassword.becomeFirstResponder()
         } else {
             checkExistLoginAndPassword()
@@ -57,11 +69,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func checkLoginAndPassword(login: String, and password: String) {
-        if login == trueLogin && password == truePassword {
-            
-        } else {
+        if login != trueLogin || password != truePassword {
             showAlert(title: "Error!",
                       for: "User name or Password is invalid.\nPlease try again.")
+        } else {
+            view.endEditing(true)
         }
     }
     
