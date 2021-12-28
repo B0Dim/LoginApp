@@ -19,7 +19,9 @@ struct User {
                 surname: "Bodakov",
                 hobby: "Beautilit, Snowboarding, Cycling, Rollers, Photo, Drawing",
                 age: 35,
-                image: "")
+                image: "bodim",
+                info: "Меня зовут Дима. Я работаю разработчиком уже очень давно. На текущей основной работе занимаюсь веб разработкой. Также имею отличные скилы по Postgres и тд. Более 3-х лет назад начал писать свой личный проект на Swift - Beautilit. Проект давно запущен в Appstore. Swift изучал сам с 0."
+            )
         )
     }
 }
@@ -30,4 +32,9 @@ struct Person {
     let hobby: String
     let age: Int
     let image: String
+    let info: String
+    
+    var fullName: String {
+        "\(name) \(surname)"
+    }
 }

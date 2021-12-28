@@ -15,6 +15,8 @@
 		087057D5277AF94E00CE95FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087057D3277AF94E00CE95FA /* LaunchScreen.storyboard */; };
 		087057DD277AF99400CE95FA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087057DC277AF99400CE95FA /* WelcomeViewController.swift */; };
 		08EE53CF277B82D400FFE281 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EE53CE277B82D400FFE281 /* User.swift */; };
+		08EE53D1277B901600FFE281 /* AboutInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EE53D0277B901600FFE281 /* AboutInfoViewController.swift */; };
+		08EE53D3277B902100FFE281 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EE53D2277B902100FFE281 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		087057D6277AF94E00CE95FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		087057DC277AF99400CE95FA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		08EE53CE277B82D400FFE281 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		08EE53D0277B901600FFE281 /* AboutInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInfoViewController.swift; sourceTree = "<group>"; };
+		08EE53D2277B902100FFE281 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 			children = (
 				087057CC277AF94B00CE95FA /* LoginViewController.swift */,
 				087057DC277AF99400CE95FA /* WelcomeViewController.swift */,
+				08EE53D0277B901600FFE281 /* AboutInfoViewController.swift */,
+				08EE53D2277B902100FFE281 /* ImageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,7 +193,9 @@
 				087057CD277AF94B00CE95FA /* LoginViewController.swift in Sources */,
 				087057DD277AF99400CE95FA /* WelcomeViewController.swift in Sources */,
 				087057C9277AF94B00CE95FA /* AppDelegate.swift in Sources */,
+				08EE53D3277B902100FFE281 /* ImageViewController.swift in Sources */,
 				08EE53CF277B82D400FFE281 /* User.swift in Sources */,
+				08EE53D1277B901600FFE281 /* AboutInfoViewController.swift in Sources */,
 				087057CB277AF94B00CE95FA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
