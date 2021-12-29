@@ -12,13 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
   
-    let user = User.getUser()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        txtPassword.enablesReturnKeyAutomatically = true
-    }
+    private let user = User.getUser()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabBarController = segue.destination as? UITabBarController else { return }
